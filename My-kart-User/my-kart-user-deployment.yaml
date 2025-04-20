@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: my-kart-user-deployment
-  namespace: my-kart-user-agro
+  namespace: my-kart-user
   labels:
     app: my-kart-user
 spec:
