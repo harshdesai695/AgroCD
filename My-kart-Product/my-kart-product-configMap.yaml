@@ -1,0 +1,6 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: my-kart-product-config
+data:
+  MONGODB_URI: mongodb+srv://harshdesaihd123:Ia8zHC19XwxBF3k6@mykart.kkl04au.mongodb.net/mykart?retryWrites=true&w=majority&appName=mykart

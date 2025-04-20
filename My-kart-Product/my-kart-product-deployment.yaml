@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: my-kart-product-deployment
+  namespace: my-kart-product
+  labels:
+    app: my-kart-product
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: my-kart-product
+  template:
+    metadata:
+      labels:
+        app: my-kart-product
+    spec:
+      containers:
+        - name: my-kart-product
+          image: docker.io/harshdesai695/product-tomcat:1.0
+          ports:
+            - containerPort: 8083
+          environment:
+            - name: MONGODB_URI
+              valueFrom:
+                configMapKeyRef:
+                  name: my-kart-product-config
+                  key: MONGODB_URI
