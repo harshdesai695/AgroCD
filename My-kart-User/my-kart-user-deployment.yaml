@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: my-kart-user-deployment
+  namespace: my-kart-user-agro
+  labels:
+    app: my-kart-user
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: my-kart-user
+  template:
+    metadata:
+      labels:
+        app: my-kart-user
+    spec:
+      containers:
+        - name: my-kart-user
+          image: docker.io/harshdesai695/user-tomcat:1.0
+          ports:
+            - containerPort: 8081
