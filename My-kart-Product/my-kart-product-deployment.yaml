@@ -20,7 +20,7 @@ spec:
           image: docker.io/harshdesai695/product-tomcat:1.0
           ports:
             - containerPort: 8083
-          environment:
+          env:
             - name: MONGODB_URI
               valueFrom:
                 configMapKeyRef:
