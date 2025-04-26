@@ -17,6 +17,19 @@ spec:
     spec:
       containers:
         - name: my-kart-user
-          image: docker.io/harshdesai695/user-tomcat:1.0
+          image: docker.io/harshdesai695/user-tomcat:2.0
           ports:
             - containerPort: 8081
+          env:
+            - name: MONGODB_URI
+              valueFrom:
+                configMapKeyRef:
+                  name: my-kart-user-config
+                  key: MONGODB_URI
+          volumeMounts:
+            - name: logs-volume
+              mountPath: /usr/local/logs
+      volumes:
+        - name: logs-volume
+          persistentVolumeClaim:
+            claimName: my-kart-user-logs-pvc
