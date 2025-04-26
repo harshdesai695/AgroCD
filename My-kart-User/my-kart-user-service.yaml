@@ -6,7 +6,7 @@ metadata:
 spec:
   type: NodePort
   selector:
-    app: my-kart-user
+    app: tomcat
   ports:
     - port: 8081
       targetPort: 8081

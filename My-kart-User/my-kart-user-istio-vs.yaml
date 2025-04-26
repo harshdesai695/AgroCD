@@ -1,0 +1,21 @@
+apiVersion: networking.istio.io/v1beta1
+kind: VirtualService
+metadata:
+  name: my-kart-user-istio-vs
+  namespace: my-kart-user
+spec:
+  hosts:
+    - "*"
+  gateways:
+    - my-kart-user-istio-gateway
+  http:
+    - match:
+        - uri:
+            exact: "/getuser"
+      rewrite:
+        uri: "/com.myKart.user/user/getUser/66a1387aca04f7117d9f4cc4"  
+      route:
+        - destination:
+            host: my-kart-user-service
+            port:
+              number: 8081

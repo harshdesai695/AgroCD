@@ -4,16 +4,16 @@ metadata:
   name: my-kart-user-deployment
   namespace: my-kart-user
   labels:
-    app: my-kart-user
+    app: tomcat
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: my-kart-user
+      app: tomcat
   template:
     metadata:
       labels:
-        app: my-kart-user
+        app: tomcat
     spec:
       containers:
         - name: my-kart-user
